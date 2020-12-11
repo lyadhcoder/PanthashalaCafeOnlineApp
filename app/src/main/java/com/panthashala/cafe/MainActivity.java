@@ -105,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                         swipeRefreshLayout.setRefreshing(false);
                         web.reload();
                     }
-                },1200);
+                },1000);
             }
         });
 
