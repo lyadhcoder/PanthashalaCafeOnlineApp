@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     private WebView web;
     String webUrl = "https://panthashalacafe.com/";
-    private ProgressBar progressBar;
+//    private ProgressBar progressBar;
 
     private SwipeRefreshLayout swipeRefreshLayout;
     RelativeLayout relativeLayout;
@@ -74,23 +74,24 @@ public class MainActivity extends AppCompatActivity {
         mywebsettings.setEnableSmoothTransition(true);
 
         //ProgressBar
-        progressBar = (ProgressBar) findViewById(R.id.progressBar);
-        web.setWebChromeClient(new WebChromeClient() {
+//        progressBar = (ProgressBar) findViewById(R.id.progressBar);
+//        web.setWebChromeClient(new WebChromeClient() {
+//
+//            // page loading progress, gone when fully loaded
+//            public void onProgressChanged(WebView view, int progress) {
+//
+//
+//                if (progress < 100 && progressBar.getVisibility() == ProgressBar.GONE) {
+//                    progressBar.setVisibility(ProgressBar.VISIBLE);
+//                }
+//
+//                if (progress == 100) {
+//                    progressBar.setVisibility(ProgressBar.GONE);
+//                }
+//                progressBar.setProgress(progress);
+//            }
+//        });
 
-            // page loading progress, gone when fully loaded
-            public void onProgressChanged(WebView view, int progress) {
-
-
-                if (progress < 100 && progressBar.getVisibility() == ProgressBar.GONE) {
-                    progressBar.setVisibility(ProgressBar.VISIBLE);
-                }
-
-                if (progress == 100) {
-                    progressBar.setVisibility(ProgressBar.GONE);
-                }
-                progressBar.setProgress(progress);
-            }
-        });
         //pull to refresh
         swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe);
 
@@ -104,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
                         swipeRefreshLayout.setRefreshing(false);
                         web.reload();
                     }
-                },1500);
+                },1200);
             }
         });
 
