@@ -10,11 +10,16 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <ImageView
-            android:id="@+id/splash"
-            android:layout_width="323dp"
-            android:layout_height="423dp"
+            android:id="@+id/splashbg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@drawable/splashscreen" />
+        <ImageView
+            android:id="@+id/splashlogo"
+            android:layout_width="330dp"
+            android:layout_height="420dp"
             android:layout_marginTop="15dp"
             android:layout_centerHorizontal="true"
             android:src="@drawable/profile" />
@@ -22,13 +27,14 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/loading"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/splash"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/splashlogo"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             app:lottie_fileName="loadinganim.json"
             app:lottie_loop="true"
+            app:lottie_speed="2.5"
             app:lottie_autoPlay="true" />
 
     </RelativeLayout>
