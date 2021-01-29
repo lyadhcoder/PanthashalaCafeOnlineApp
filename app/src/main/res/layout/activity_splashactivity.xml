@@ -34,7 +34,7 @@
             android:layout_centerVertical="true"
             app:lottie_fileName="loadinganim.json"
             app:lottie_loop="true"
-            app:lottie_speed="2.5"
+            app:lottie_speed="3.0"
             app:lottie_autoPlay="true" />
 
     </RelativeLayout>

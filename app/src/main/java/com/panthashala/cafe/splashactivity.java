@@ -8,7 +8,7 @@ import android.os.Handler;
 
 public class splashactivity extends AppCompatActivity {
 
-    public static int Splash_time = 3000;
+    public static int Splash_time = 2000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
