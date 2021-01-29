@@ -3,8 +3,8 @@ package com.panthashala.cafe;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -12,24 +12,23 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.webkit.WebChromeClient;
 import android.webkit.WebResourceError;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
 public class MainActivity extends AppCompatActivity {
 
     private WebView web;
-    String webUrl = "https://panthashalacafe.com/";
+    final String webUrl = "https://panthashalacafe.com/";
 //    private ProgressBar progressBar;
 
     private SwipeRefreshLayout swipeRefreshLayout;
     RelativeLayout relativeLayout;
 
+    @SuppressLint("SetJavaScriptEnabled")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
         //web.getSettings().setAppCacheEnabled(true);
         web.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
         mywebsettings.setDomStorageEnabled(true);
-        mywebsettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+//        mywebsettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
         mywebsettings.setUseWideViewPort(true);
         mywebsettings.setSavePassword(true);
         mywebsettings.setSaveFormData(true);
@@ -95,18 +94,12 @@ public class MainActivity extends AppCompatActivity {
         //pull to refresh
         swipeRefreshLayout = (SwipeRefreshLayout)findViewById(R.id.swipe);
 
-        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                swipeRefreshLayout.setRefreshing(true);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        swipeRefreshLayout.setRefreshing(false);
-                        web.reload();
-                    }
-                },1000);
-            }
+        swipeRefreshLayout.setOnRefreshListener(() -> {
+            swipeRefreshLayout.setRefreshing(true);
+            new Handler().postDelayed(() -> {
+                swipeRefreshLayout.setRefreshing(false);
+                web.reload();
+            },1000);
         });
 
         swipeRefreshLayout.setColorSchemeColors(
@@ -134,20 +127,9 @@ public class MainActivity extends AppCompatActivity {
 
             builder.setMessage("Are you sure you want to Exit?")
                     .setCancelable(false)
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
+                    .setPositiveButton("Yes", (dialogInterface, i) -> finish())
 
-                            finish();
-                        }
-                    })
-
-                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            dialogInterface.cancel();
-                        }
-                    });
+                    .setNegativeButton("No", (dialogInterface, i) -> dialogInterface.cancel());
             android.app.AlertDialog alertDialog = builder.create();
             alertDialog.show();
         }

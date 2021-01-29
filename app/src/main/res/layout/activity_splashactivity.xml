@@ -6,13 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".splashactivity"
     android:background="@color/white"
-    android:forceDarkAllowed="false"
->
+    tools:ignore="Overdraw">
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent"
+        android:forceDarkAllowed="false"
+        tools:targetApi="q">
         <ImageView
-            android:id="@+id/splashbg"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
@@ -29,7 +30,6 @@
 
 
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/loading"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@+id/splashlogo"
@@ -37,7 +37,7 @@
             android:layout_centerVertical="true"
             app:lottie_fileName="loadinganim.json"
             app:lottie_loop="true"
-            app:lottie_speed="3.0"
+            app:lottie_speed="4.0"
             app:lottie_autoPlay="true" />
 
     </RelativeLayout>

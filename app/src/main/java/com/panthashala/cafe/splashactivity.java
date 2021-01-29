@@ -8,20 +8,17 @@ import android.os.Handler;
 
 public class splashactivity extends AppCompatActivity {
 
-    public static int Splash_time = 2000;
+    public static final int Splash_time = 1500;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splashactivity);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+        new Handler().postDelayed(() -> {
 
-                Intent intent = new Intent(splashactivity.this, MainActivity.class);
-                startActivity(intent);
-            }
+            Intent intent = new Intent(splashactivity.this, MainActivity.class);
+            startActivity(intent);
         }, Splash_time);
 
 
