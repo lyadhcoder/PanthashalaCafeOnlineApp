@@ -16,14 +16,16 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:scaleType="fitXY"
-            android:src="@drawable/splashscreen" />
+            android:src="@drawable/splashscreen"
+            android:contentDescription="@string/desc"/>
         <ImageView
             android:id="@+id/splashlogo"
             android:layout_width="330dp"
             android:layout_height="420dp"
             android:layout_marginTop="15dp"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/profile" />
+            android:src="@drawable/profile"
+            android:contentDescription="@string/desc"/>
 
 
         <com.airbnb.lottie.LottieAnimationView
