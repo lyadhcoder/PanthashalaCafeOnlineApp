@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".MainActivity"
-    android:forceDarkAllowed="false">
+    android:forceDarkAllowed="false"
+    tools:targetApi="q">
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -18,12 +19,14 @@
             android:contentDescription="@string/desc"
             />
     </RelativeLayout>
-<!--    <ProgressBar-->
-<!--        style="?android:attr/progressBarStyleHorizontal"-->
-<!--        android:id="@+id/progressBar"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        />-->
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        tools:ignore="InconsistentLayout" />
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
